@@ -81,38 +81,90 @@
         <footer class="">
 
             <!-- accordion for show answers  -->
-            <div class="border-2 border-danger rounded-3 bg-danger w-50 mx-auto py-3">
+            <div class="border-2 border-danger rounded-3 bg-primary  w-50 mx-auto py-3">
                  <div class="container w-100">
 
 <div class="accordion" id="accordionPanelsStayOpenExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-        Accordion Item #1
+        <img width="25px" class="rounded-3" src="./data/img/js logo.png" alt="">যেভাবে কাজ করে 
       </button>
     </h2>
     <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
       <div class="accordion-body">
-        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        <p style="font-size: 13px;" class="">
+        js সাধারণত ২ ভাবে run করে node.js এবং Browsers এর মধ্যে , তবে উভয় ক্ষেত্রেই js Engine সাহায্যে কাজ করে  ।
+
+        Engine এর  কাজ হল human readable js formated sheet এর মধ্যে থাকা code কে machine readable কোড এ convert করে (01) । 
+        
+        Engine এর মধ্যে 2 টা part থাকে 
+        <strong>1. Memory Heap</strong> <code>(To Store data for Execution)</code>
+        
+        <strong>2. Call stake</strong> <code>(Where all functions are stored as a stake)</code>
+        এটা এটা হল<strong> LOFO </strong> <code>(last in fast Out) </code> এটার মধ্যে data উপর উপর করে রাখা হয় (which call stake frame) , যে data শেষে আসে সেটা আগে Execute হয় । 
+        call stake এর মধ্যে যদি কোন Asynchronous data চলে আসে তবে সেটাকে WEB api এর কাছে রেখে  পরের Synchronous data একের পর এক Execute করতে থাকে । 
+        এই জন্য JS কে বলে single-threaded programming language অর্থাৎ এটা একক সময়ে একটার বেশি কাজ করতে পারেনা ।
+        
+        কিন্তু এটা যেহেতু Asynchronous data কে web api এর কাছে দিয়ে সে তার কাজ করতে পারে তাই runTime এর মধ্যে একক সময়ে একাধিক কাজ হতে থাকে ,
+        তাই এটাকে বলে  event driven programming language ।
+        
+        js একটা Client side programming language  বলার কারন হল এটা file আকারে  Client এর conputer এর মধ্যে download হয় এবং Client এর  conputer এর মধ্যেই run হয় ।
+      </p>
       </div>
     </div>
   </div>
+  
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-        Accordion Item #2
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo ">
+        <span class="d-block text-center">  <img width="25px" class="rounded-3" src="./data/img/storage .png" alt=""> local storage VS session storage  <img width="25px" class="rounded-3" src="./data/img/storage .png" alt=""></span>
       </button>
     </h2>
     <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
       <div class="accordion-body">
-        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title text-center">local storage</h5>
+                <p style="font-size: 13px;" class="card-text"> 
+                
+                  local storage এর capacity 5MB (Depends on browser)  <br>
+                  local storage এর data expire হয়ে যায়না ।  <br>
+
+                  local storage এর ডাটা Manually delete করতে হয় ।<br>
+                  local storage যেকোনো একটা tab এর জন্য কাজ করেনা বরং যেকোনো tab এর জন্য কাজ করে । <br>
+  
+      
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title  text-center">session storage</h5>
+                <p style="font-size: 13px;" class="card-text">
+                  Session storage এর capacity 5-10MB (Depends on browser) <br>
+                  Session storage expire হয়ে যায় ।  <br>
+
+                  Session storage এর ডাটা এর data browser বা tab close করলে delete হয়ে যায়  । <br>
+                  Session storage যেকোনো একটা tab এর জন্য কাজ করে । <br>
+      
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingThree">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-        Accordion Item #3
+        <img width="25px" class="rounded-3" src="./data/img/event loop .png" alt=""> Event Loop do
       </button>
     </h2>
     <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
