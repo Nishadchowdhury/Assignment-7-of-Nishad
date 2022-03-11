@@ -78,10 +78,13 @@
                 <h1>Reported posts</h1>
             </div>
         </main>
-        <footer class="">
+
+
+        <footer class="mb-4">
 
             <!-- accordion for show answers  -->
-            <div class="border-2 border-danger rounded-3 bg-primary  w-50 mx-auto py-3">
+            <div id="answers" class="border-2 border-danger rounded-3 bg-primary  w-50 mx-auto py-3">
+              <h3 class="text-center text-white text-capitalize">some Questions answers</h3>
                  <div class="container w-100">
 
 <div class="accordion" id="accordionPanelsStayOpenExample">
@@ -168,8 +171,19 @@
       </button>
     </h2>
     <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-      <div class="accordion-body">
-        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      <div class="accordion-body" style="font-size: 13px;">
+        Engine সব Synchronize ডাটাকে সরাসরি execute করে আর Asynchronize ডাটা গুলাকে পাঠিয়ে দেয় <small>(browser এর ক্ষেত্রে)</small> web api এর কাছে । <br>
+        
+        call stake তার মধ্যে থাকা function গুলাকে একের পর এক execute করার জন্য পাস করে করে একটা সময় খালি হয়ে যায় , তখন event loop তার কাজ শুরু করে । <br>
+
+        web api এর মধ্যে থাকা ডাটা গুলার মধ্যে থেকে যখন যার timer শেষ হয়ে যায় ঠিক তখনি web API ডাটা-টাকে callBack Queue এর মধ্যে pass করে দেয় 
+        এবং এক এক করে callBack Queue এর মধ্যে Asynchronize ডাটা গুলা store হতে থাকে । 
+        তো এই callBack Queue থেকে call stake এর মধ্যে এক এক করে data গুলাকে pass করার কাজটা করে Event loop , 
+        Event loop সে call stake কে চেক করে দেখে যে সে খালি আছে কিনা যদি call stake খালি থাকে event loop দেখে যে callBack Queue এর মধ্যে কিছু আছে কিনা । 
+        যদি থাকে সে একবার করে loop করে এবং একটা করে data pass করে call stake এর মধ্যে । 
+        তারপরে call stake এর মধ্যে function টা স্বাভাবিক নিয়মেই call হতে থাকে ।       
+        
+        
       </div>
     </div>
   </div>
@@ -178,7 +192,7 @@
             </div>
 
             </div>
-           
+            
         </footer>
 
         <!-- add javascript  file  --><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
